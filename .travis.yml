@@ -1,7 +1,7 @@
 services:
 - docker
 script:
-- travis_wait 30 docker build -t test/$DOCKER_TAG .
+- docker build -t test/$DOCKER_TAG .
 - docker login -u="$DOCKER_HUB_LOGIN" -p="$DOCKER_HUB_PASSWORD"
 - docker tag test/$DOCKER_TAG dok3r/vexriscv:$DOCKER_TAG
 - docker push dok3r/vexriscv:$DOCKER_TAG

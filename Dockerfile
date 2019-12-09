@@ -8,7 +8,7 @@ apt-get install -yq autoconf automake autotools-dev curl libmpc-dev libmpfr-dev 
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 mkdir -p /opt && \
 cd /opt && \
-git clone --recursive https://github.com/riscv/riscv-gnu-toolchain riscv-gnu-toolchain && \
+git clone --progress --recursive https://github.com/riscv/riscv-gnu-toolchain riscv-gnu-toolchain && \
 cd riscv-gnu-toolchain && \
 rm -rf $ARCH && \
 mkdir $ARCH && \
