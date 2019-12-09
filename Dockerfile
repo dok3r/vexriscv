@@ -10,18 +10,16 @@ mkdir -p /opt && \
 cd /opt && \
 git clone --progress --recursive https://github.com/riscv/riscv-gnu-toolchain riscv-gnu-toolchain && \
 cd riscv-gnu-toolchain && \
-rm -rf $ARCH && \
 mkdir $ARCH && \
 cd $ARCH && \
 ../configure  --prefix=/opt/$ARCH --with-arch=$ARCH --with-abi=ilp32 && \
-make -j `nproc` && \
-cd .. && \
-rm -rf $ARCHI && \
+make -i -j `nproc` && \
+cd /opt && \
 mkdir $ARCHI && \
 cd $ARCHI && \
 ../configure  --prefix=/opt/$ARCHI --with-arch=$ARCHI --with-abi=ilp32 && \
-make -j `nproc` && \
-cd .. && \
+make -i -j `nproc` && \
+cd /opt && \
 rm -rf /opt/riscv-gnu-toolchain && \
 echo "[success]"
 
