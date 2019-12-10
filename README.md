@@ -14,12 +14,12 @@ docker run -it dok3r/vexriscv
 Simple example:
 
 ```
-export PATH=/opt/rv32i/bin:$PATH
+export PATH=/opt/$ARCH/bin:$PATH
 export CC=riscv32-unknown-elf-gcc
 export CXX=riscv32-unknown-elf-g++
 ```
 
-Compiler are located in /opt/rv32i and /opt/rv32im
+Compiler is located in /opt/rv32ima
 
 
 
