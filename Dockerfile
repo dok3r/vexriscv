@@ -1,7 +1,7 @@
 FROM debian:latest
 MAINTAINER kost - https://github.com/kost
 
-ENV ARCH=rv32im ARCHI=rv32i
+ENV ARCH=rv32ima
 
 RUN apt-get -qq update && \
 apt-get install -yq autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev git && \
@@ -13,11 +13,6 @@ cd riscv-gnu-toolchain && \
 mkdir $ARCH && \
 cd $ARCH && \
 ../configure  --prefix=/opt/$ARCH --with-arch=$ARCH --with-abi=ilp32 && \
-make -i -j `nproc` && \
-cd /opt && \
-mkdir $ARCHI && \
-cd $ARCHI && \
-../configure  --prefix=/opt/$ARCHI --with-arch=$ARCHI --with-abi=ilp32 && \
 make -i -j `nproc` && \
 cd /opt && \
 rm -rf /opt/riscv-gnu-toolchain && \
